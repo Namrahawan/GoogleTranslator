@@ -48,7 +48,11 @@ target_language = st.selectbox(
 if user_input and target_language:
     # Find the target language code
     target_language_code = [key for key, value in LANGUAGES.items() if value == target_language][0]
-    
+    # Add a button to trigger translation
+if st.button("Translate"):
+    if user_input and target_language:
+        # Find the target language code
+        target_language_code = [key for key, value in LANGUAGES.items() if value == target_language][0]
     # Translate the text
     try:
         translation = translator.translate(user_input, dest=target_language_code)
